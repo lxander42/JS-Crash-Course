@@ -5,7 +5,7 @@
 ## Learning process
 I am following [JavaScript Crash Course For Beginners (youtube.com)](https://www.youtube.com/watch?v=hdI2bqOjy3c&t=2s) and writing down learnings as I go. I will put key learnings and roadblocks in a bulleted list below 
 
-Stopped here https://youtu.be/hdI2bqOjy3c?si=la_caIw2BT8XMBlh&t=378
+Stopped here https://youtu.be/hdI2bqOjy3c?si=9R2xFayvoJ7igrWT&t=1341
 
 Starting new github repo "JS Crash Course" [lxander42/JS-Crash-Course: A crash course in learning JS (github.com)](https://github.com/lxander42/JS-Crash-Course)
 
@@ -42,6 +42,78 @@ Starting new github repo "JS Crash Course" [lxander42/JS-Crash-Course: A crash c
 - [JavaScript Higher Order Functions & Arrays (youtube.com)](https://www.youtube.com/watch?v=rRgD1yVwIvE)
 - [Async JS Crash Course - Callbacks, Promises, Async Await (youtube.com)](https://www.youtube.com/watch?v=PoRJizFvM7s)
 - [JavaScript Fundamentals For Beginners (youtube.com)](https://www.youtube.com/watch?v=vEROU2XtPR8&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=2)
+
+### Methods
+**Method example**
+```javascript
+console.log('Hello World'); 
+```
+
+*log* is a **method** of the **object** *console* 
+
+Other methods for the console object can be found at [console - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/console)
+
+The MDN documentation is the Mozilla developer network and it is for all of Javascript. We can look for all methods we want to use. 
+
+### Variables 
+```js
+//var, let, const are variables
+```
+
+You don't really want to use var because var is a globally scoped variable and can interfere with other global variables. 
+
+let - values can be reassigned.
+const - constant variable. 
+
+### Variable Types
+
+```js
+// Data types: String, Numbers, Boolean, null, undefined, and others
+
+const name = 'John';
+const age = 30;
+const rating = 4.5 //even though it is a decimal it is still just a number
+const isCool = true;
+const x = null; //return value will say 'Object' but it is really null
+const y = undefined;
+let z; //also undefined by default
+
+console.log(typeof name); //gives the type of whatever object you put here
+```
+
+#### Strings
+
+```js
+// Data types: String
+
+const name = 'John';
+const age = 25;
+
+//Concatenation
+
+//old way of doing concatenate
+console.log('My name is ' + name + ' and I am ' + age);
+
+// Template Strings (literals)
+console.log(`My name is ${name} and I am ${age}`);
+
+//could assign this to a variable
+const greeting = `My name is ${name} and I am ${age}`;
+console.log(greeting);
+
+//String properties and methods
+console.log('String properties and methods Below');
+const s = 'Hello World';
+console.log(s.length); //.length is a property, if it has parenthesis, for example .length(), then it is a method
+
+//A method is basically a function that is associated with an object
+console.log(s.toUpperCase());
+
+//taking a substring
+console.log(s.substring(0,5));
+```
+
+
 
 
 
