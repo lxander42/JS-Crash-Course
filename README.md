@@ -5,12 +5,10 @@
 ## Learning process
 I am following [JavaScript Crash Course For Beginners (youtube.com)](https://www.youtube.com/watch?v=hdI2bqOjy3c&t=2s) and writing down learnings as I go. I will put key learnings and roadblocks in a bulleted list below 
 
-Stopped here https://youtu.be/hdI2bqOjy3c?si=9R2xFayvoJ7igrWT&t=1341
-
 Starting new github repo "JS Crash Course" [lxander42/JS-Crash-Course: A crash course in learning JS (github.com)](https://github.com/lxander42/JS-Crash-Course)
 
 ## Roadblocks
-- roadblock 1 
+- Can't see what I am writing code for - Use [Live Server](Live%20Server.md)
 
 ## Notes
 ### What is JavaScript?
@@ -65,6 +63,9 @@ You don't really want to use var because var is a globally scoped variable and c
 let - values can be reassigned.
 const - constant variable. 
 
+If you try to reassign a const you will get the following error: 
+![](Pasted%20image%2020240313144229.png)
+
 ### Variable Types
 
 ```js
@@ -82,7 +83,6 @@ console.log(typeof name); //gives the type of whatever object you put here
 ```
 
 #### Strings
-
 ```js
 // Data types: String
 
@@ -111,11 +111,153 @@ console.log(s.toUpperCase());
 
 //taking a substring
 console.log(s.substring(0,5));
+
 ```
 
+#### Arrays
 
+```js
+//ARRAYS
+console.log('Arrays notes section'); 
 
+//Arrays are variables that hold multiple values
+//This way isn't used that much, using a constructor 'new' keyword
+const numbers = new Array(1,2,3,4,5);
+console.log(numbers);
 
+//For the most part, just set brackets
+const fruits = ['apples', 'oranges', 'pears', 10, true, null, undefined];
+/*not statically typed so you don't have to have specific types, with typscript, static 
+typing is a thing*/
+console.log(fruits);
+//to access a specific element, use the brackets it is 0 based
+console.log(fruits[2]); 
+//to change an element; 
+fruits[3] = 'grapes';
+console.log(fruits[3]);
+/* you can the values in a const array, you just cant set the array to nothing */ 
+/* you can toggle a comment with Shift+alt+A */
 
+//Use the push method to add an element to the end of an array
+fruits.push('mangos');
+console.log(fruits);
 
+//use unshift to add an element to the beginning of the array 
+fruits.unshift('berries'); 
+console.log(fruits);
 
+//use pop to pop the last value off the array
+fruits.pop(); 
+console.log(fruits); 
+
+//to check if something is an array 
+console.log(Array.isArray(fruits)); 
+console.log(Array.isArray('hello'));
+
+//get the index of a certain value 
+console.log(fruits.indexOf('berries'));
+
+```
+
+definitely more to arrays, see https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays
+
+#### Object Literals
+https://youtu.be/hdI2bqOjy3c?si=7ZN0f_LK6aP9xgcA&t=1810
+
+```js
+//OBJECT LITERALS: Key value pairs
+
+const person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 30,
+    hobbies: ['music', 'movies', 'sports'],
+    //you can also embed objects in objects
+    address: {
+        street: '50 main st',
+        city: 'Boston',
+        state: 'MA'
+    }
+}
+
+console.log(person);
+
+//to access a single value, and log multiple values
+console.log(person.firstName, person.age);
+
+//take what you have learned about arrays and objects and see if you can get movies to print
+//out in the console
+console.log(person.hobbies[person.hobbies.indexOf('movies')]);
+//literally the most convoluted way to do that.
+
+//destructuring
+//think of this not as assigning something but of pulling this out of the person object
+const {firstName,  lastName} = person; 
+//this allows you to pull out properties from an object 
+console.log(firstName); 
+console.log(lastName);
+
+//If it is an embedded object like an address, what we can do is destructure a property from
+//the subobject 
+const {address:{city}} = person; 
+console.log(city); 
+
+//adding properties 
+person.email = 'john@gmail.com'
+console.log(person);
+
+//adding a sub object, just for fun add health data where we list blood type and pressure
+person.healthData = {
+    bloodType: 'AB',
+    bloodPressure: '140/100'
+};
+
+//Example: creating an array of objects - TODOs
+const todos = [
+    {
+        id: 1, 
+        text: 'Wash the dishes', 
+        isCompleted: true
+    },
+    {
+        id: 2, 
+        text: 'Check drawing', 
+        isCompleted: true
+    },
+    {
+        id: 3, 
+        text: 'meeting with shareholders', 
+        isCompleted: false
+    }
+]; 
+console.log(todos);
+
+//as a challenge, try to print out 'Check drawing' in the console
+console.log(todos[1].text);
+
+//JSON formatting is very similar to object literals
+//go here to convert JSON: https://www.freeformatter.com/json-formatter.html
+//for example, the todos above are formatted as such: 
+[
+    {
+       "id": 1,
+       "text": "Wash the dishes",
+       "isCompleted": true
+    },
+    {
+       "id": 2,
+       "text": "Check drawing",
+       "isCompleted": true
+    },
+    {
+       "id": 3,
+       "text": "meeting with shareholders",
+       "isCompleted": false
+    }
+ ]
+
+ //Now how to convert an Array of objects to JSON?
+ const todoJSON = JSON.stringify(todos); 
+ console.log(todoJSON);
+```
+Stopped here: https://youtu.be/hdI2bqOjy3c?si=cHpI5x-bI49w119C&t=2270
